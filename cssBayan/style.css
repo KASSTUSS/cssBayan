@@ -59,7 +59,8 @@
     opacity: 0;
     transform: scale(0);
     
-    transition: height .3s, opacit .3s, transform .3s;
+    transition-property: transform, opacity, height;
+    transition-duration: .35s;
 }
 
 .item-radio:checked ~ .item-body > img {
@@ -68,7 +69,8 @@
     opacity: 1;
     transform: scale(1);
     
-    transition: height .3s, opacity .3s, transform .3s;
+    transition-property: transform, opacity, height;
+    transition-duration: .35s;
 }
 .item-radio:checked ~ .item-title {
     color: black;
@@ -80,11 +82,46 @@
 }
 
 .accordion-item:active .item-title {
-    color: #4886C9;
+    color: #4886C9 !important;
 }
 .accordion-item:active .item-toggle {
-    fill: #4886C9;
+    fill: #4886C9 !important;
 }
 .accordion-item:active .item-body {
     opacity: .75;
+}
+
+
+
+@media (hover: hover) { /* Mobile first approach - cursor over the memes (hover) effect exists only for desktop devices */
+    .item-title {
+        color: #4886C9;
+    }
+    .item-toggle {
+        opacity: 0;
+    }
+    
+    .accordion:hover * {
+        cursor: pointer;
+    }
+    .accordion:hover .item-title {
+        color: black;
+    }
+    .accordion:hover .item-toggle {
+        opacity: 1;
+    }
+    .accordion-item > label:hover > .item-body > img {
+        height: 15em;
+    
+        opacity: 1;
+        transform: scale(1);
+
+        transition-property: transform, opacity, height;
+        transition-duration: .35s;
+    }
+    .accordion-item > label:hover > .item-toggle {
+        transform: rotateZ(45deg);
+
+        transition: transform .15s;
+    }
 }
