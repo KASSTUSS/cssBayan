@@ -37,16 +37,15 @@
     font-weight: 500;
     line-height: 2;
 
-    color: #4886C9;
+    color: black;
 }
 .item-toggle {
     height: 2em;
 
-    content: url(./icons/open.png);
     width: 1.5em;
     height: 1.5em;
 
-    transition: transform .15s;
+    transition: transform .1s;
 }
 .item-body {
     width: 100%;
@@ -59,7 +58,7 @@
     
     opacity: 0;
     transform: scale(0);
-    transition: .35s;
+    transition: .3s;
 }
 
 .item-radio:checked ~ .item-body > img {
@@ -67,12 +66,21 @@
 
     opacity: 1;
     transform: scale(1);
-    transition: transform opacity height .35s;
+    transition: transform opacity height .3s;
 }
 .item-radio:checked ~ .item-title {
     color: black;
 }
 .item-radio:checked ~ .item-toggle {
     transform: rotateZ(45deg) !important;
-    transition: transform .15s;
+    transition: transform .1s;
+}
+.accordion-item:active .item-title {
+    color: #4886C9;
+}
+.accordion-item:active .item-toggle {
+    fill: #4886C9;
+}
+.accordion-item:active .item-body {
+    opacity: .75;
 }
