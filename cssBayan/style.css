@@ -1,0 +1,63 @@
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+
+    background-color: #F0F1FD;
+}
+._container {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.title {
+    margin-bottom: .45em;
+    line-height: 2;
+
+    font-size: 2.25em;
+    font-weight: 700;
+}
+
+.accordion-item {
+    border-top: 1px solid lightgray;
+}
+.accordion-item > label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.item-radio {
+    display: none;
+}
+.item-title {
+    height: 2em;
+
+    font-size: 1.5em;
+    font-weight: 500;
+    line-height: 2;
+
+    color: #4886C9;
+}
+.item-toggle {
+    height: 2em;
+
+    content: url(./icons/open.png);
+    width: 1.5em;
+    height: 1.5em;
+
+    transition: transform .15s;
+}
+.item-body {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+.item-body > img {
+    height: 0em;
+    
+    opacity: 0;
+    transform: scale(0);
+    transition: .35s;
+}
