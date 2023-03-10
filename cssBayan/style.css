@@ -1,3 +1,27 @@
+:root {
+    /* 
+        Changeable parameters for mobile, tablet, desctop 
+
+        *Default options for mobile*
+    */
+    --font-size-title: 2.25em;
+    --line-height-title: 2.5;
+    --margin-bottom-title: .45em;
+
+    --height-item-title: 2em;
+    --font-size-item-title: 1.5em;
+    --line-height-item-title: 2;
+
+    --height-item-body-img: 15em;
+
+
+    /* Styling options */
+    --background-color: #F0F1FD; /* main background color */
+    --default-color: #000; /* default text color */
+    --active-color: #4886C9; /* active text color */
+    --border-color: #C2D3DE; /* accordion item top border color */
+}
+
 .wrapper {
     min-height: 100%;
     overflow: hidden;
@@ -10,15 +34,17 @@
 }
 
 .title {
-    margin-bottom: .45em;
-    line-height: 2;
+    margin-bottom: var(--margin-bottom-title);
+    line-height: var(--line-height-title);
 
-    font-size: 2.25em;
+    font-size: var(--font-size-title);
     font-weight: 700;
+
+    color: var(--default-color)
 }
 
 .accordion-item {
-    border-top: 1px solid lightgray;
+    border-top: 1px solid var(--border-color);
 }
 .accordion-item > label {
     display: flex;
@@ -31,19 +57,22 @@
     display: none;
 }
 .item-title {
-    height: 2em;
+    height: var(--height-item-title);
 
-    font-size: 1.5em;
+    font-size: var(--font-size-item-title);
     font-weight: 500;
-    line-height: 2;
+    line-height: var(--line-height-item-title);
 
-    color: black;
+    color: var(--default-color);
 }
 .item-toggle {
-    height: 2em;
+    height: var(--height-item-title);
+}
+.item-toggle svg {
+    width: var(--font-size-item-title);
+    height: var(--font-size-item-title);
 
-    width: 1.5em;
-    height: 1.5em;
+    fill: var(--default-color);
 
     transition: transform .1s;
 }
@@ -64,7 +93,7 @@
 }
 
 .item-radio:checked ~ .item-body > img {
-    height: 15em;
+    height: var(--height-item-body-img);
 
     opacity: 1;
     transform: scale(1);
@@ -73,31 +102,30 @@
     transition-duration: .35s;
 }
 .item-radio:checked ~ .item-title {
-    color: black;
+    color: var(--default-color);
 }
-.item-radio:checked ~ .item-toggle {
+.item-radio:checked ~ .item-toggle svg {
     transform: rotateZ(45deg) !important;
     
     transition: transform .1s;
 }
 
 .accordion-item:active .item-title {
-    color: #4886C9 !important;
+    color: var(--active-color) !important;
 }
-.accordion-item:active .item-toggle {
-    fill: #4886C9 !important;
+.accordion-item:active .item-toggle svg {
+    fill: var(--active-color) !important;
 }
 .accordion-item:active .item-body {
     opacity: .75;
 }
 
 
-
 @media (hover: hover) { /* Mobile first approach - cursor over the memes (hover) effect exists only for desktop devices */
     .item-title {
-        color: #4886C9;
+        color: var(--active-color);
     }
-    .item-toggle {
+    .item-toggle svg {
         opacity: 0;
     }
     
@@ -105,13 +133,13 @@
         cursor: pointer;
     }
     .accordion:hover .item-title {
-        color: black;
+        color: var(--default-color);
     }
-    .accordion:hover .item-toggle {
+    .accordion:hover .item-toggle svg {
         opacity: 1;
     }
     .accordion-item > label:hover > .item-body > img {
-        height: 15em;
+        height: var(--height-item-body-img);
     
         opacity: 1;
         transform: scale(1);
@@ -119,9 +147,38 @@
         transition-property: transform, opacity, height;
         transition-duration: .35s;
     }
-    .accordion-item > label:hover > .item-toggle {
+    .accordion-item > label:hover > .item-toggle svg {
         transform: rotateZ(45deg);
 
         transition: transform .15s;
+    }
+}
+
+
+@media screen and (min-width: 820px) and (max-width: 1920px) {
+    :root {
+        --font-size-title: 3.5em;
+        --margin-bottom-title: .5em;
+        --line-height-title: 2.5;
+
+        --height-item-title: 2.5em;
+        --font-size-item-title: 2.25em;
+        --line-height-item-title: 2.5;
+
+        --height-item-body-img: 20em;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    :root {
+        --font-size-title: 4.25em;
+        --margin-bottom-title: .55em;
+        --line-height-title: 2.75;
+
+        --height-item-title: 2.75em;
+        --font-size-item-title: 2.5em;
+        --line-height-item-title: 2.75;
+
+        --height-item-body-img: 25em;
     }
 }
