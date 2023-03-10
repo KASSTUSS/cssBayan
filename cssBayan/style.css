@@ -61,3 +61,18 @@
     transform: scale(0);
     transition: .35s;
 }
+
+.item-radio:checked ~ .item-body > img {
+    height: 15em;
+
+    opacity: 1;
+    transform: scale(1);
+    transition: transform opacity height .35s;
+}
+.item-radio:checked ~ .item-title {
+    color: black;
+}
+.item-radio:checked ~ .item-toggle {
+    transform: rotateZ(45deg) !important;
+    transition: transform .15s;
+}
