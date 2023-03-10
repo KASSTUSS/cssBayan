@@ -155,7 +155,7 @@
 }
 
 
-@media screen and (min-width: 820px) and (max-width: 1920px) {
+@media screen and (min-width: 820px) and (max-width: 1920px) { /* Options for tablet */
     :root {
         --font-size-title: 3.5em;
         --margin-bottom-title: .5em;
@@ -169,7 +169,7 @@
     }
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1920px) { /* Options for desctop */
     :root {
         --font-size-title: 4.25em;
         --margin-bottom-title: .55em;
