@@ -58,7 +58,8 @@
     
     opacity: 0;
     transform: scale(0);
-    transition: .3s;
+    
+    transition: height .3s, opacit .3s, transform .3s;
 }
 
 .item-radio:checked ~ .item-body > img {
@@ -66,15 +67,18 @@
 
     opacity: 1;
     transform: scale(1);
-    transition: transform opacity height .3s;
+    
+    transition: height .3s, opacity .3s, transform .3s;
 }
 .item-radio:checked ~ .item-title {
     color: black;
 }
 .item-radio:checked ~ .item-toggle {
     transform: rotateZ(45deg) !important;
+    
     transition: transform .1s;
 }
+
 .accordion-item:active .item-title {
     color: #4886C9;
 }
