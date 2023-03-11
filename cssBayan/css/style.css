@@ -1,0 +1,251 @@
+:root {
+    /* 
+        Changeable parameters for mobile, tablet, desctop 
+        *Default options for small mobile*
+    */
+    --max-width-container: 85%;
+
+    --font-size-title: 1.85em;
+    --line-height-title: 2.5;
+    --margin-bottom-title: .3em;
+
+    --height-item-title: 2.75em;
+    --font-size-item-title: 1.25em;
+    --line-height-item-title: 1.35;
+
+    --height-item-body-img: 13em;
+
+
+    /* Styling options */
+    --background-color: #F0F1FD; /* main background color */
+    --default-color: #000; /* default text color */
+    --active-color: #4886C9; /* active text color */
+    --border-color: #C2D3DE; /* accordion item top border color */
+    --transition-duration: .325s; /* transition duration for visual effect */
+}
+
+/* Fix content shift when scrollbar appears */
+html { 
+    overflow-y: overlay;
+    scroll-behavior: smooth;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #fff;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 5px;
+
+    transition: background-color .1s;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--active-color);
+
+    transition: background-color .1s;
+}
+
+/* Wrapper properties */
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+
+    background-color: #F0F1FD;
+}
+._container {
+    max-width: var(--max-width-container);
+    margin: 0 auto;
+}
+
+/* Main title properties */
+.title {
+    margin-bottom: var(--margin-bottom-title);
+    line-height: var(--line-height-title);
+
+    font-size: var(--font-size-title);
+    font-weight: 700;
+
+    color: var(--default-color)
+}
+
+/* Accordion properties */
+.accordion-item {
+    border-top: 1px solid var(--border-color);
+}
+.accordion-item > label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.item-radio {
+    display: none;
+}
+.item-title-container {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    min-height: var(--height-item-title);;
+}
+.item-title {
+    max-width: calc(100% - var(--font-size-item-title) - 5%);
+    padding: 0.25em 0 0.25em 0;
+
+    font-size: var(--font-size-item-title);
+    line-height: var(--line-height-item-title);
+    font-weight: 500;
+    vertical-align: baseline;
+    white-space: wrap;
+    overflow: hidden;
+
+    color: var(--default-color);
+}
+.item-toggle {
+    height: var(--font-size-item-title);
+}
+.item-toggle svg {
+    width: var(--font-size-item-title);
+    height: var(--font-size-item-title);
+
+    fill: var(--default-color);
+
+    transition: transform .15s;
+}
+.item-body {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+.item-body > img {
+    height: 0em;
+    
+    opacity: 0;
+    transform: scale(0);
+    
+    transition-property: transform, opacity, height;
+    transition-duration: var(--transition-duration);
+}
+
+/* Accordion item changing mechanism */
+.item-radio:checked ~ .item-body > img {
+    height: var(--height-item-body-img);
+    margin-bottom: calc( var(--height-item-title) / 1.5 );
+
+    opacity: 1;
+    transform: scale(1);
+    
+    transition-property: transform, opacity, height;
+    transition-duration: var(--transition-duration);
+}
+.item-radio:checked ~ .item-title {
+    color: var(--default-color);
+}
+.item-radio:checked ~ .item-title-container > .item-toggle > svg {
+    transform: rotateX(180deg) !important;
+    
+    transition: transform .15s;
+}
+
+.accordion-item:active .item-title {
+    color: var(--active-color) !important;
+}
+.accordion-item:active .item-toggle svg {
+    fill: var(--active-color) !important;
+}
+.accordion-item:active .item-body {
+    opacity: .75;
+}
+
+
+/* Mobile first approach - cursor over the memes (hover) effect exists only for desktop devices */
+@media (hover: hover) {
+    .item-title {
+        color: var(--active-color);
+    }
+    .item-toggle svg {
+        opacity: 0;
+    }
+    
+    .accordion:hover * {
+        cursor: pointer;
+    }
+    .accordion:hover .item-title {
+        color: var(--default-color);
+    }
+    .accordion:hover .item-toggle svg {
+        opacity: 1;
+    }
+    .accordion-item > label:hover > .item-body > img {
+        height: var(--height-item-body-img);
+        margin-bottom: calc( var(--height-item-title) / 1.5 );
+    
+        opacity: 1;
+        transform: scale(1);
+
+        transition-property: transform, opacity, height;
+        transition-duration: var(--transition-duration);
+    }
+    .accordion-item > label:hover > .item-title-container > .item-toggle > svg {
+        transform: rotateX(180deg);
+
+        transition: transform .15s;
+    }
+}
+
+/* Options for mobile */
+@media screen and (min-width: 320px) and (max-width: 820px) { 
+    :root {
+        --font-size-title: 2.75em;
+        --margin-bottom-title: .3em;
+        --line-height-title: 2.5;
+
+        --height-item-title: 4em;
+        --font-size-item-title: 1.5em;
+        --line-height-item-title: 1.45;
+
+        --height-item-body-img: 15em;
+    }
+}
+
+/* Options for tablet */
+@media screen and (min-width: 820px) and (max-width: 1920px) { 
+    :root {
+        --max-width-container: 70%;
+
+        --font-size-title: 3.5em;
+        --margin-bottom-title: .05em;
+        --line-height-title: 2.5;
+
+        --height-item-title: 3.5em;
+        --font-size-item-title: 1.9em;
+        --line-height-item-title: 1.4;
+
+        --height-item-body-img: 22.5em;
+    }
+}
+
+/* Options for desctop */
+@media screen and (min-width: 1920px) { 
+    :root {
+        --max-width-container: 55%;
+
+        --font-size-title: 5em;
+        --margin-bottom-title: .45em;
+        --line-height-title: 2.65;
+
+        --height-item-title: 7em;
+        --font-size-item-title: 2.35em;
+        --line-height-item-title: 1.35;
+
+        --height-item-body-img: 25em;
+    }
+}
