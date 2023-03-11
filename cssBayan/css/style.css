@@ -2,7 +2,7 @@
     /* 
         Changeable parameters for mobile, tablet, desctop 
 
-        *Default options for short mobile*
+        *Default options for small mobile*
     */
     --max-width-container: 85%;
 
@@ -50,7 +50,7 @@ html {
     transition: background-color .1s;
 }
 
-
+/* Wrapper properties */
 .wrapper {
     min-height: 100%;
     overflow: hidden;
@@ -62,6 +62,7 @@ html {
     margin: 0 auto;
 }
 
+/* Main title properties */
 .title {
     margin-bottom: var(--margin-bottom-title);
     line-height: var(--line-height-title);
@@ -72,6 +73,7 @@ html {
     color: var(--default-color)
 }
 
+/* Accordion properties */
 .accordion-item {
     border-top: 1px solid var(--border-color);
 }
@@ -121,6 +123,7 @@ html {
     transition-duration: var(--transition-duration);
 }
 
+/* Accordion item changing mechanism */
 .item-radio:checked ~ .item-body > img {
     height: var(--height-item-body-img);
 
@@ -150,7 +153,8 @@ html {
 }
 
 
-@media (hover: hover) { /* Mobile first approach - cursor over the memes (hover) effect exists only for desktop devices */
+/* Mobile first approach - cursor over the memes (hover) effect exists only for desktop devices */
+@media (hover: hover) {
     .item-title {
         color: var(--active-color);
     }
@@ -183,8 +187,8 @@ html {
     }
 }
 
-
-@media screen and (min-width: 320px) and (max-width: 820px) { /* Options for mobile */
+/* Options for mobile */
+@media screen and (min-width: 320px) and (max-width: 820px) { 
     :root {
         --font-size-title: 2.35em;
         --margin-bottom-title: .3em;
@@ -198,7 +202,8 @@ html {
     }
 }
 
-@media screen and (min-width: 820px) and (max-width: 1920px) { /* Options for tablet */
+/* Options for tablet */
+@media screen and (min-width: 820px) and (max-width: 1920px) { 
     :root {
         --max-width-container: 75%;
 
@@ -214,7 +219,8 @@ html {
     }
 }
 
-@media screen and (min-width: 1920px) { /* Options for desctop */
+/* Options for desctop */
+@media screen and (min-width: 1920px) { 
     :root {
         --max-width-container: 60%;
 
