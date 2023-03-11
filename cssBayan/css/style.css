@@ -117,7 +117,7 @@ html {
 
     fill: var(--default-color);
 
-    transition: transform .1s;
+    transition: transform .15s;
 }
 .item-body {
     width: 100%;
@@ -149,10 +149,10 @@ html {
 .item-radio:checked ~ .item-title {
     color: var(--default-color);
 }
-.item-radio:checked ~ .item-toggle svg {
-    transform: rotateZ(45deg) !important;
+.item-radio:checked ~ .item-title-container > .item-toggle > svg {
+    transform: rotateX(180deg) !important;
     
-    transition: transform .1s;
+    transition: transform .15s;
 }
 
 .accordion-item:active .item-title {
@@ -194,10 +194,10 @@ html {
         transition-property: transform, opacity, height;
         transition-duration: var(--transition-duration);
     }
-    .accordion-item > label:hover > .item-toggle svg {
-        transform: rotateZ(45deg);
+    .accordion-item > label:hover > .item-title-container > .item-toggle > svg {
+        transform: rotateX(180deg);
 
-        transition: transform .1s;
+        transition: transform .15s;
     }
 }
 
